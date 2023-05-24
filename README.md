@@ -8,6 +8,7 @@ The project follows a well-organized folder structure to maintain code readabili
 
 - **auth**: Contains components and services related to user authentication, including login and registration functionality.
 
+```bash
 auth
 ├── guards
 │ └── auth.guard.ts
@@ -21,6 +22,7 @@ auth
 │ └── register.component.ts
 ├── auth-routing.module.ts
 └── auth.module.ts
+```
 
 - **core**: Represents the private section of the application and contains components such as the dashboard, profile, list, and details.
 - **shared**: Contains shared components, services, and utilities that can be used across different parts of the application.
@@ -62,3 +64,7 @@ The project template includes the following key dependencies:
 - Node-sass: A library that allows the usage of SCSS (Sass) stylesheets in the project.
 
 Please refer to the package.json file for a complete list of dependencies and their versions.
+
+```
+
+```
