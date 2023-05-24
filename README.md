@@ -13,8 +13,8 @@ auth
 │ └── auth.guard.ts
 ├── services
 │ └── auth.service.ts
-├── retrievers
-│ └── data.retriever.ts
+├── resolvers
+│ └── auth.resolver.ts
 ├── login
 │ └── login.component.ts
 ├── register
