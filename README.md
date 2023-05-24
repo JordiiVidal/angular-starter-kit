@@ -7,7 +7,7 @@ This is a basic project template for Angular applications, designed to provide a
 The project follows a well-organized folder structure to maintain code readability and scalability. Here's an overview of the key folders:
 
 - **auth**: Contains components and services related to user authentication, including login and registration functionality.
-- **secure**: Represents the private section of the application and contains components such as the dashboard, profile, list, and details.
+- **core**: Represents the private section of the application and contains components such as the dashboard, profile, list, and details.
 - **shared**: Contains shared components, services, and utilities that can be used across different parts of the application.
 
 ## Features
