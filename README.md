@@ -21,6 +21,7 @@ auth
 ├── register
 │ └── register.component.ts
 ├── auth-routing.module.ts
+├── auth.component.ts
 └── auth.module.ts
 ```
 
@@ -31,17 +32,17 @@ auth
 
 The project template includes the following features:
 
-1. **User Authentication**: The auth module provides functionality for user login and registration, utilizing JSON Web Tokens (JWT) for secure authentication.
+- [ ] **User Authentication**: The auth module provides functionality for user login and registration, utilizing JSON Web Tokens (JWT) for secure authentication.
 
-2. **Dashboard**: The secure module includes a dashboard component that serves as the main entry point for the authenticated user. It provides an overview of relevant information and access to various sections of the application.
+- [ ] **Dashboard**: The secure module includes a dashboard component that serves as the main entry point for the authenticated user. It provides an overview of relevant information and access to various sections of the application.
 
-3. **Profile**: The profile component allows users to view and update their profile information, including profile picture, contact details, and other relevant data.
+- [ ] **Profile**: The profile component allows users to view and update their profile information, including profile picture, contact details, and other relevant data.
 
-4. **List**: The list component displays a list of items, which can be customized based on your project's specific requirements. It can include features like pagination, filtering, and sorting.
+- [ ] **List**: The list component displays a list of items, which can be customized based on your project's specific requirements. It can include features like pagination, filtering, and sorting.
 
-5. **Details**: The details component provides detailed information about a specific item from the list. It can be customized to display additional data or implement specific actions related to the item.
+- [ ] **Details**: The details component provides detailed information about a specific item from the list. It can be customized to display additional data or implement specific actions related to the item.
 
-6. **Theme Switching**: The project utilizes Angular Material to implement a theme switching functionality, allowing users to toggle between light and dark themes.
+- [ ] **Theme Switching**: The project utilizes Angular Material to implement a theme switching functionality, allowing users to toggle between light and dark themes.
 
 ## Getting Started
 
@@ -64,7 +65,3 @@ The project template includes the following key dependencies:
 - Node-sass: A library that allows the usage of SCSS (Sass) stylesheets in the project.
 
 Please refer to the package.json file for a complete list of dependencies and their versions.
-
-```
-
-```
