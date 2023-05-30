@@ -1,10 +1,8 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" formControlName="username">
-        <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password">
-    </div>
+    <label for="username">Username</label>
+    <input type="text" id="username" formControlName="username">
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
     <button type="submit" aria-label="Login" [attr.aria-disabled]="!isValidForm"
         [disabled]="!isValidForm">Login</button>
     <span *ngIf="!isValidForm">
