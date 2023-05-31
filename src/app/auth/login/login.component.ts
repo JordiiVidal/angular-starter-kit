@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject, Subscription, takeUntil } from 'rxjs';
+import { Route, Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +10,14 @@ import { Subject, Subscription, takeUntil } from 'rxjs';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
-  isValidForm!: boolean;
+  disabledForm!: boolean;
   private destroy$ = new Subject<void>();
 
-  constructor() {}
+  constructor(private route: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.getForm;
-    this.isValidForm = this.loginForm.valid;
+    this.disabledForm = !this.loginForm.valid;
     this.formStatusChange();
   }
 
@@ -36,11 +37,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginForm.statusChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe((status) => {
-        this.isValidForm = status === 'VALID';
+        this.disabledForm = status === 'VALID';
       });
   }
 
   onSubmit(): void {
-    console.log(this.loginForm);
+    this.route.navigateByUrl('/');
   }
 }

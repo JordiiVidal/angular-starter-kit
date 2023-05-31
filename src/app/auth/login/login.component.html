@@ -3,9 +3,9 @@
     <input type="text" id="username" formControlName="username">
     <label for="password">Password</label>
     <input type="password" id="password" formControlName="password">
-    <button type="submit" aria-label="Login" [attr.aria-disabled]="!isValidForm"
-        [disabled]="!isValidForm">Login</button>
-    <span *ngIf="!isValidForm">
+    <button type="submit" aria-label="Login" [attr.aria-disabled]="disabledForm"
+        [disabled]="disabledForm">Login</button>
+    <span *ngIf="disabledForm">
         Fill all fields
     </span>
 </form>

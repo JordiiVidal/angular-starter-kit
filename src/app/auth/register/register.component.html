@@ -1,7 +1,13 @@
-<form>
-    <input type="text" name="username">
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <input type="password" name="password2">
-    <button>Register</button>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit">
+    <label for="username">Username</label>
+    <input type="text" id="username" formControlName="username">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" formControlName="email">
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+    <label for="password2">Repit</label>
+    <input type="password" id="password2" formControlName="password2">
+    <button type="submit" aria-label="Register" [attr.aria-disabled]="disabledForm"
+        [disabled]="disabledForm">Register</button>
+    <span *ngIf="disabledForm">Fill all fields</span>
 </form>
