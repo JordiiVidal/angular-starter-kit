@@ -11,15 +11,12 @@ The project follows a well-organized folder structure to maintain code readabili
 ```bash
 auth
 ├── guards
-│ └── auth.guard.ts
+├── components
+│ └── auth-form
 ├── services
-│ └── auth.service.ts
 ├── resolvers
-│ └── auth.resolver.ts
 ├── login
-│ └── login.component.ts
 ├── register
-│ └── register.component.ts
 ├── auth-routing.module.ts
 ├── auth.component.ts
 └── auth.module.ts
