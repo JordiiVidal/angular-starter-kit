@@ -1,8 +1,12 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .auth-bg {
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
 }
 
 .auth-content {
@@ -14,31 +18,38 @@
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     margin: 0 auto;
-}
 
-.auth-content h1 {
-    font-size: 21px;
-    margin-bottom: 20px;
+    h1 {
+        font-size: 21px;
+        margin-bottom: 20px;
+    }
 }
 
 form {
     max-width: 400px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    @include flex-center;
     text-align: left;
-}
-form input {
-    margin-bottom: 20px;
-}
-form button {
-    padding: 10px;
-    background-color: #0082c8;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-form button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+
+    div {
+        @include flex-center;
+        text-align: left;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #0082c8;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
 }
