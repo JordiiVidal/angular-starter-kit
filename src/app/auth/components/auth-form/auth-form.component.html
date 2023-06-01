@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit">
+    <div *ngFor="let control  of formControls">
+        <label [for]="control">{{ control }}</label>
+        <input [type]="getInputType(control)" [id]="control" [formControlName]="control">
+    </div>
+    <div>
+        <button type="submit" [attr.aria-label]="textButton" [attr.aria-disabled]="disabledForm"
+            [disabled]="disabledForm">{{textButton}}</button>
+        <span *ngIf="disabledForm">Fill all fields</span>
+    </div>
+</form>

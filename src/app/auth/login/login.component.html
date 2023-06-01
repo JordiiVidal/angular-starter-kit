@@ -1,17 +1,3 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-    <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" formControlName="username">
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password">
-    </div>
-    <div>
-        <button type="submit" aria-label="Login" [attr.aria-disabled]="disabledForm"
-            [disabled]="disabledForm">Login</button>
-        <span *ngIf="disabledForm">
-            Fill all fields
-        </span>
-    </div>
-</form>
+<div>
+    <app-auth-form [form]="form" (formSubmitted)="onSubmit"></app-auth-form>
+</div>
