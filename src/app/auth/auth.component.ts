@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   template: `
     <section class="auth-bg">
       <div class="auth-content">
-        <h1>Login</h1>
         <router-outlet></router-outlet>
       </div>
     </section>

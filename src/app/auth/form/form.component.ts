@@ -7,22 +7,17 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import {
-  AbstractControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-auth-form',
-  templateUrl: './auth-form.component.html',
+  templateUrl: './form.component.html',
   standalone: true,
-  styleUrls: ['./auth-form.component.scss'],
+  styleUrls: ['./form.component.scss'],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
 })
-export class AuthFormComponent implements OnInit, OnDestroy {
+export class FormComponent implements OnInit, OnDestroy {
   @Input() form!: FormGroup;
   @Input() textButton: String = 'Login';
   @Output() formSubmitted = new EventEmitter<FormGroup>();

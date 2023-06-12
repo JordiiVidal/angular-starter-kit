@@ -10,16 +10,19 @@ The project follows a well-organized folder structure to maintain code readabili
 
 ```bash
 auth
-├── guards
-├── components
-│ └── auth-form
-├── services
-├── resolvers
+├── form
+│ └── form.component.ts
 ├── login
+│ └── login.component.ts
 ├── register
+│ └── register.component.ts
 ├── auth-routing.module.ts
 ├── auth.component.ts
-└── auth.module.ts
+├── auth.guard.ts
+├── auth.module.ts
+├── auth.resolver.ts
+└── auth.service.ts
+
 ```
 
 - **core**: Represents the private section of the application and contains components such as the dashboard, profile, list, and details.
