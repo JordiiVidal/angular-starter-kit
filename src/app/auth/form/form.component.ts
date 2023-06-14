@@ -7,7 +7,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -15,21 +15,21 @@ import { Subject, takeUntil } from 'rxjs';
   templateUrl: './form.component.html',
   standalone: true,
   styleUrls: ['./form.component.scss'],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
 })
 export class FormComponent implements OnInit, OnDestroy {
   @Input() form!: FormGroup;
   @Input() textButton: String = 'Login';
   @Output() formSubmitted = new EventEmitter<FormGroup>();
-  disabledForm!: boolean;
+  disabledForm: boolean = false;
   private destroy$!: Subject<void>;
 
-  constructor() {}
+  constructor() {
+    this.destroy$ = new Subject<void>();
+  }
 
   ngOnInit(): void {
-    this.disabledForm = !this.form.valid;
     this.formStatusChange();
-    console.log(this.formControls);
   }
 
   ngOnDestroy(): void {

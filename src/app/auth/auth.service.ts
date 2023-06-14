@@ -1,25 +1,35 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Observable, BehaviorSubject, of, from, map, concat } from 'rxjs';
-import * as jwt from 'jsonwebtoken';
+import { HttpClient } from '@angular/common/http';
+import {
+  Observable,
+  BehaviorSubject,
+  of,
+  from,
+  map,
+  concat,
+  catchError,
+} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly tokenGetter$: Observable<string | null>;
   private readonly token$: Observable<string>;
   private readonly tokenSubject: BehaviorSubject<string>;
 
-  constructor(private jwtHelper: JwtHelperService) {
+  constructor(private jwtHelper: JwtHelperService, private http: HttpClient) {
     this.tokenSubject = new BehaviorSubject<string>('');
-    this.tokenGetter$ = from(this.jwtHelper.tokenGetter());
-    concat(this.tokenGetter$).subscribe((token) => {
+    this.token$ = this.tokenSubject.asObservable();
+    this.initToken();
+  }
+
+  initToken() {
+    from(this.jwtHelper.tokenGetter()).subscribe((token) => {
       if (typeof token === 'string') {
         this.tokenSubject.next(token);
       }
     });
-    this.token$ = this.tokenSubject.asObservable();
   }
 
   isLoggedIn(): Observable<boolean> {
@@ -29,17 +39,24 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<boolean> {
-    try {
-      const token = jwt.sign({ email, password }, 'secretKey', {
-        expiresIn: '1h',
-      });
-      localStorage.setItem('access_token', token);
-      this.tokenSubject.next(token);
-      return of(true);
-    } catch (error) {
-      console.error('Error en el inicio de sesión:', error);
-      return of(false);
-    }
+    const loginData = { email, password };
+    return this.http.post<any>('http://localhost:3000/login', loginData).pipe(
+      map((response) => {
+        const token = response.token;
+
+        if (token) {
+          localStorage.setItem('access_token', token);
+          this.tokenSubject.next(token);
+          return true;
+        } else {
+          return false;
+        }
+      }),
+      catchError((error) => {
+        console.error('Error en el inicio de sesión:', error);
+        return of(false);
+      })
+    );
   }
 
   logout() {

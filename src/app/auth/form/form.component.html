@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div *ngFor="let control  of formControls">
         <label [for]="control">{{ control }}</label>
         <input [type]="getInputType(control)" [id]="control" [formControlName]="control">
